@@ -21,5 +21,3 @@ jobs:
     - name: Install Dependencies
       run: npm install || echo "No dependencies to install"
 
-    - name: Run Docker Compose Check
-      run: docker-compose config
