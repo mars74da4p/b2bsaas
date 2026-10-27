@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClientFlow — Open Source B2B SaaS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen">
+  
+  <!-- Navigation Header -->
+  <nav class="border-b border-slate-800 bg-slate-950/50 backdrop-blur px-6 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white">CF</div>
+      <span class="font-bold text-xl tracking-tight">ClientFlow <span class="text-xs bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 px-2 py-0.5 rounded-full ml-2">Open Source</span></span>
+    </div>
+    <div class="flex gap-4">
+      <button onclick="showTab('dashboard')" class="text-sm px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 font-medium transition">Дашборд</button>
+      <button onclick="showTab('portal')" class="text-sm px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 font-medium transition">Портал Клиента</button>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="max-w-6xl mx-auto p-6">
+    
+    <!-- Dashboard View -->
+    <section id="dashboard-view" class="space-y-6">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 class="text-2xl font-bold">Онбординг клиентов</h1>
+          <p class="text-slate-400 text-sm">Управление текущими проектами и статусом задач клиентов.</p>
+        </div>
+        <button class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-medium">+ Добавить клиента</button>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-5 rounded-xl border border-slate-800 bg-slate-950/40">
+          <span class="text-slate-400 text-sm">Всего клиентов</span>
+          <div class="text-3xl font-bold mt-1">12</div>
+        </div>
+        <div class="p-5 rounded-xl border border-slate-800 bg-slate-950/40">
+          <span class="text-slate-400 text-sm">В процессе онбординга</span>
+          <div class="text-3xl font-bold mt-1 text-indigo-400">4</div>
+        </div>
+        <div class="p-5 rounded-xl border border-slate-800 bg-slate-950/40">
+          <span class="text-slate-400 text-sm">Среднее время онбординга</span>
+          <div class="text-3xl font-bold mt-1 text-emerald-400">3.2 дня</div>
+        </div>
+      </div>
+
+      <!-- Clients List -->
+      <div class="border border-slate-800 rounded-xl overflow-hidden bg-slate-950/40">
+        <table class="w-full text-left text-sm text-slate-300">
+          <thead class="bg-slate-800/50 text-slate-400 uppercase text-xs">
+            <tr>
+              <th class="p-4">Компания</th>
+              <th class="p-4">Контактное лицо</th>
+              <th class="p-4">Статус</th>
+              <th class="p-4">Прогресс</th>
+            </tr>
+          </thead>
+          <tbody id="clients-table">
+            <tr class="border-t border-slate-800">
+              <td class="p-4 font-semibold text-white">TechCorp</td>
+              <td class="p-4">Иван Иванов</td>
+              <td class="p-4"><span class="px-2.5 py-1 text-xs rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Онбординг</span></td>
+              <td class="p-4">65%</td>
+            </tr>
+            <tr class="border-t border-slate-800">
+              <td class="p-4 font-semibold text-white">DesignStudio</td>
+              <td class="p-4">Елена Смирнова</td>
+              <td class="p-4"><span class="px-2.5 py-1 text-xs rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">Ожидание</span></td>
+              <td class="p-4">10%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Client Portal View -->
+    <section id="portal-view" class="hidden space-y-6">
+      <div class="border border-slate-800 bg-slate-950/40 p-6 rounded-xl">
+        <h2 class="text-xl font-bold mb-2">Портал онбординга: TechCorp</h2>
+        <p class="text-slate-400 text-sm mb-6">Пожалуйста, выполните следующие шаги для начала работы над проектом.</p>
+        
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 p-4 rounded-lg border border-slate-800 bg-slate-900/50 cursor-pointer">
+            <input type="checkbox" checked class="w-5 h-5 accent-indigo-600">
+            <span class="line-through text-slate-400">Заполнить анкетирование и бриф</span>
+          </label>
+          <label class="flex items-center gap-3 p-4 rounded-lg border border-slate-800 bg-slate-900/50 cursor-pointer">
+            <input type="checkbox" checked class="w-5 h-5 accent-indigo-600">
+            <span class="line-through text-slate-400">Предоставить доступы к рекламному кабинету</span>
+          </label>
+          <label class="flex items-center gap-3 p-4 rounded-lg border border-slate-800 bg-slate-900/50 cursor-pointer">
+            <input type="checkbox" class="w-5 h-5 accent-indigo-600">
+            <span>Утвердить техническое задание</span>
+          </label>
+          <label class="flex items-center gap-3 p-4 rounded-lg border border-slate-800 bg-slate-900/50 cursor-pointer">
+            <input type="checkbox" class="w-5 h-5 accent-indigo-600">
+            <span>Загрузить логотипы и брендбук</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function showTab(tab) {
+      document.getElementById('dashboard-view').classList.toggle('hidden', tab !== 'dashboard');
+      document.getElementById('portal-view').classList.toggle('hidden', tab !== 'portal');
+    }
+  </script>
+</body>
+</html>
